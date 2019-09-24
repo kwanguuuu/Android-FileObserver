@@ -17,18 +17,20 @@ public class MainActivity extends AppCompatActivity {
     public static String TAG = "log";
 
     private FileObserver fileObserver;
-//    private String absolutePath = Environment.getExternalStorageState()
-    private String absolutePath = Intent.ACTION_OPEN_DOCUMENT;
+    // real device path
 
-    @RequiresApi(api = Build.VERSION_CODES.Q)
+    //private String absolutePath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_PICTURES + File.separator + "Screenshots" + File.separator;
+    private String absolutePath = Environment.getRootDirectory().getPath();
+
+//    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.d(TAG, absolutePath);
+        Log.e(TAG, absolutePath);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        fileObserver = new FileObserverImpl(new File(absolutePath), FileObserver.ACCESS );
+        Log.e(TAG,absolutePath);
+        fileObserver = new FileObserverImpl(absolutePath,FileObserver.CREATE);
     }
 
     @Override
