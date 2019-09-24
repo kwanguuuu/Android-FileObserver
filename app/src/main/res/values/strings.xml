@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">screenshot_detect</string>
+    <string name="action_settings">Settings</string>
+</resources>
