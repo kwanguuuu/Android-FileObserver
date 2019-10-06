@@ -12,18 +12,17 @@ import java.io.File;
 
 public class FileObserverImpl extends FileObserver {
 
-    public String TAG = "log";
+    public String TAG = "tag";
 
-//    @RequiresApi(api = Build.VERSION_CODES.Q)
-//    public FileObserverImpl(@NonNull File file, int mask) {
-//        super(file, mask);
-//    }
     public FileObserverImpl(String path, int mask) {
         super(path,mask);
+        Log.d(TAG,"FileObserverImpl");
     }
 
     @Override
     public void onEvent(int event, @Nullable String path) {
+        Log.d(TAG,"on Event....");
+
         if(event == FileObserver.CREATE) {
             //Do something...
         }
